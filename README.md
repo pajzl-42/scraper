@@ -15,13 +15,13 @@ Pro instalaci Pythonu se obraťte na následující web: https://www.python.org/
 
 Instalace potřebného balíčku probíhá pomocí pip instalátoru:
 1. Spusťte příkazový řádek vašeho operačního systému
-2. Zadejte pip install "název balíčku" a potvrďte 
+2. Zadejte pip install "název balíčku" (bez uvozovek) a potvrďte (Enter)
 3. V případě potřeby postupujte dle instrukcí v příkazovém řádku/terminálu
 
 
 
 Ukázka funkčnosti programu:
 Územní celek Trutnov 
-1. Spuštění: python main.py "https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=8&xnumnuts=5205" "Trutnov"
+1. Spuštění: python main.py "https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=8&xnumnuts=5205" "Trutnov_example"
 2. Výsledky jsou zapsány v souboru Trutnov.csv v tomto adresáři
 

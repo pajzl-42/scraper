@@ -7,14 +7,10 @@ e-mail: jan.tasler@gmail.com
 from functions import *
 
 def main():
-    if incorrect_agruments():
-        print("Incorrect initial arguments, the program won't initialize")
-        quit()
-    url = sys.argv[1]
-    csv_name = sys.argv[2] + '.csv'
-
+    url = arguments_load()[0]
+    csv_name = arguments_load()[1]
     data_scrape(url, csv_name)
-
+    print("All done!")
 
 if __name__ == "__main__":
     main()
