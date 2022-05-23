@@ -8,7 +8,8 @@ Election scraper - zisk volebních dat - popis spuštění skriptu:
 1. Pro spuštění je nutné mít nainstalovaný python s balíčky dle dokumentu Requirements.txt
 2. Spouštějte příkazem: python main.py "url" "název" (včetně uvozovek), kde:
    1. url je webová adresa územního celku (okresu) - např: https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=1&xnumnuts=1100
-   2. název je pojmenování souboru do kterého budete chtít data uložit
+   2. k url adrese územního celku se dostanete kliknutím na "X" ve sloupci "Výběr obce" na stránce https://volby.cz/pls/ps2017nss/ps3?xjazyk=CZ
+   3. název je pojmenování souboru do kterého budete chtít data uložit
 3. Pokud zadáte nesprávné argumenty, program se nespustí - budete upozorněni
 
 Pro instalaci Pythonu se obraťte na následující web: https://www.python.org/downloads/
