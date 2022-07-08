@@ -62,32 +62,40 @@ def data_scrape(url,csv_name):
             url_area = "https://volby.cz/pls/ps2017nss/ps311?xjazyk=CZ&xkraj={}&xobec={}&xvyber={}".format(county,number,numnuts)
             site_area = requests.get(url_area)
             soup_area = BS(site_area.text, "html.parser")
-            voters = soup_area.find("td",{"headers":"sa2"})
+            voters = soup_area.find("td", {"headers":"sa2"})
             envelopes = soup_area.find("td", {"headers":"sa3"})
             votes = soup_area.find("td", {"headers": "sa6"})
+
             parties = []
             for party in soup_area.find_all("td",{"class":"overflow_name"}):
                 parties.append(party.string)
 
-            result = [number, num_name[number], space_eraser(voters.string), space_eraser(envelopes.string), space_eraser(votes.string), parties]
+            parties_votes = []
+            for vote in soup_area.find_all("td",{"headers":"t1sa2 t1sb3"}):
+                parties_votes.append(vote.string)
+            for vote in soup_area.find_all("td", {"headers":"t2sa2 t2sb3"}):
+                parties_votes.append(vote.string)
+
+            header = ["Kód obce", "Název obce", "Počet voličů v seznamu", "Počet vydaných obálek","Počet platých hlasů"] + parties
+            result = [number, num_name[number], space_eraser(voters.string), space_eraser(envelopes.string), space_eraser(votes.string)] + parties_votes
+
             print("Scraped for area: {}".format(num_name[number]))
-            csv_write(csv_name,result)
+            csv_write(csv_name,result,header)
     except TypeError:
         None
     except:
         print("Error with data extraction")
-        csv_write(csv_name, "Error with data extraction")
+        csv_write(csv_name, "Error with data extraction","")
 
-def csv_write(name, data):
-    header = ["Kód obce", "Název obce", "Počet voličů v seznamu", "Počet vydaných obálek", "Počet platých hlasů", "Kandidující strany"]
+def csv_write(name, data, header):
     if name in os.listdir():
         mode = "a"
-        with open(name, mode) as f:
+        with open(name, mode, newline='') as f:
             writer = csv.writer(f)
             writer.writerow(data)
     else:
         mode = "w"
-        with open(name, mode) as f:
+        with open(name, mode, newline='') as f:
             writer = csv.writer(f)
             writer.writerow(header)
             writer.writerow(data)
