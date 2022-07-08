@@ -1,8 +1,10 @@
 """
+
 python projekt 3 - Engeto Python Akademie 2022
 
 author: Jan Tásler
 e-mail: jan.tasler@gmail.com
+
 """
 from functions import *
 

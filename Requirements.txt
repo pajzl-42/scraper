@@ -1,5 +1,3 @@
-Used packages:
-
 Package            Version
 ------------------ -----------
 beautifulsoup4     4.11.1
