@@ -20,7 +20,6 @@ Instalace potřebného balíčku probíhá pomocí pip instalátoru:
 3. V případě potřeby postupujte dle instrukcí v příkazovém řádku/terminálu
 
 
-
 Ukázka funkčnosti programu:
 Územní celek Trutnov 
 1. Spuštění: python main.py "https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=8&xnumnuts=5205" "Trutnov_example"
